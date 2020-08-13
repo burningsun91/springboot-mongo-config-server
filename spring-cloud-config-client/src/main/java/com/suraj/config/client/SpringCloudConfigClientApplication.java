@@ -21,19 +21,10 @@ public class SpringCloudConfigClientApplication {
 class UserRestController {
 
 	@Value("${user.test1}")
-	private String name;
+	private String propertyValue;
 
-	/*
-	 * @Value("${user.city}") private String city;
-	 * 
-	 * @Value("${user.language}") private String language;
-	 * 
-	 * @Value("${user.state}") private String state;
-	 */
-
-	@RequestMapping("/getUserDetails")
-	String getUserDetails() {
-		//return "Name :" + name + "<p>City :" + city + "<p>State :" + state + "<p>Language :" + language;
-		return name;
+	@RequestMapping("/getDetails")
+	String getDetails() {
+		return propertyValue;
 	}
 }
