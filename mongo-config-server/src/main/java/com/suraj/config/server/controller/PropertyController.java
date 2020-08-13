@@ -39,9 +39,7 @@ public class PropertyController {
 		PropertySource existingProperties = propertyRepository.findByProfileAndLabel(newProperties.getProfile(), newProperties.getLabel());
 		if(existingProperties != null) {
 			existingProperties.setSource(newProperties.getSource());
-			//existingProperties.setLastModified(new Timestamp(System.currentTimeMillis()));
 			mongoTemplate.save(existingProperties, existingProperties.getApplicationName());
-			propertyRepository.save(existingProperties);
 			return existingProperties;
 		}else {
 			//newProperties.setLastModified(new Timestamp(System.currentTimeMillis()));
