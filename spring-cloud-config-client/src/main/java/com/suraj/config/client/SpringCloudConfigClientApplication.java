@@ -20,11 +20,17 @@ public class SpringCloudConfigClientApplication {
 @RestController
 class UserRestController {
 
-	@Value("${user.test1}")
+	@Value("${test1.property}")
 	private String propertyValue;
+	
+	@Value("${spring.test.property.uri}")
+	private String springProperty;
+	
+	@Value("${spring.active.test-app}")
+	private String springPropertyNew;
 
 	@RequestMapping("/getDetails")
 	String getDetails() {
-		return propertyValue;
+		return "Test Property : "+propertyValue+" ## Spring Property : "+springProperty+" ## Spring Property 2 :"+springPropertyNew;
 	}
 }
